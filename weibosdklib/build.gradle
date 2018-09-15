@@ -36,11 +36,13 @@ apply plugin: 'com.jfrog.bintray'
 def siteUrl = 'https://github.com/yemengsky/WeiboSDK'
 //项目的版本控制地址
 def gitUrl = 'https://github.com/yemengsky/WeiboSDK.git'
+//
+def issuesTrackerUrl='https://github.com/yemengsky/WeiboSDK/issues'
 
 //发布到组织名称名字，必须填写
 group = "com.yemeng"
 //发布到JCenter上的项目名字，必须填写
-def libName = "weibosdk"
+def libName = "WeiboSDK"
 // 版本号，下次更新是只需要更改版本号即可
 version = "4.3.0"
 /**  上面配置后上传至JCenter后的编译路径是这样的： compile 'group:libName:version'  **/
@@ -58,7 +60,7 @@ task javadoc(type: Javadoc) {
     options.charSet 'UTF-8'
     options.author true
     options.version true
-    options.links "https://github.com/yemengsky/WeiboSDK"
+    options.links siteUrl
     failOnError false
 }
 
@@ -86,12 +88,12 @@ install {
         pom {
             project {
                 packaging 'aar'
-                name 'weibosdk'
+                name libName
                 url siteUrl
                 licenses {
                     license {
                         name 'MIT'
-                        url 'https://opensource.org/licenses/MIT'
+                        url 'https://raw.githubusercontent.com/yemengsky/WeiboSDK/master/LICENSE'
                     }
                 }
                 developers {
@@ -121,7 +123,7 @@ bintray {
     pkg {
         repo = "maven"
         name = libName    //发布到JCenter上的项目名字，必须填写
-        desc = 'weibosdk'    //项目描述
+        desc = 'custom weibosdk'    //项目描述
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["MIT"]
