@@ -1,1 +1,1 @@
-include ':app', ':WeibosdkLib'
+include ':app', ':weibosdklib'
